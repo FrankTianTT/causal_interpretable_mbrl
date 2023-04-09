@@ -7,6 +7,7 @@
 from typing import *
 
 import sys
+
 if sys.version_info < (3, 8):
     from typing_extensions import Protocol
 
@@ -39,7 +40,8 @@ class EnvKind(enum.Enum):
                 task, noise_spec = spec.rsplit('_', 1)
                 assert noise_spec == 'noisy'
                 env = f"robodesk_{task.replace('_', '-')}_variant=three-neartv-bright_button=NoistyCorrelated_gL=green-light,tv-green_objL=RangeExtOffset_envL=Noisyy_cam=0.3>0.65_res=96_noiseV=0.5_sliderAlph=1_views=lessfar-topview_tv=Video2SharpContrast-FS1-Roll1"
-                return parse_RoboDeskEnv(env, observation_output_kind, seed, max_episode_length, action_repeat, batch_shape)
+                return parse_RoboDeskEnv(env, observation_output_kind, seed, max_episode_length, action_repeat,
+                                         batch_shape)
 
         observation_output_kind: AutoResetEnvBase.ObsOutputKind
         if for_storage:
@@ -48,7 +50,6 @@ class EnvKind(enum.Enum):
             observation_output_kind = AutoResetEnvBase.ObsOutputKind.image_float32
         return make_env(spec, observation_output_kind=observation_output_kind, action_repeat=action_repeat,
                         max_episode_length=max_episode_length, seed=seed, batch_shape=batch_shape)
-
 
 
 @attrs.define(kw_only=True, auto_attribs=True)
@@ -63,7 +64,6 @@ class EnvConfig:
     spec: str = MISSING
     action_repeat: int = attrs.field(default=2, validator=attrs.validators.gt(0))
     max_episode_length: int = attrs.field(default=1000, validator=attrs.validators.gt(0))
-
 
 
 __all__ = ['AutoResetEnvBase', 'split_seed', 'env_interact_random_actor', 'env_interact_with_model',
