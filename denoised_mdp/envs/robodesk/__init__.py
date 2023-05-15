@@ -102,7 +102,7 @@ def _make_one_env(spec: str, observation_output_kind: AutoResetEnvBase.ObsOutput
     if noise_spec == 'noisy':
         env = RoboDeskEnv(task=task, episode_length=max_episode_length, action_repeat=action_repeat,
                           observation_output_kind=observation_output_kind, distractors='all',
-                          tv_video_file_pattern=os.path.join(get_kinetics_dir(), 'train/driving_car/*.mp4'))
+                          tv_video_file_pattern=os.path.join(get_kinetics_dir(), 'driving_car/*.mp4'))
     elif noise_spec == 'noiseless':
         env = RoboDeskEnv(task=task, episode_length=max_episode_length, action_repeat=action_repeat,
                           observation_output_kind=observation_output_kind, distractors='none')
