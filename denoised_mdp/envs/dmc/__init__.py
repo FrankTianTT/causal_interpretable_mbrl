@@ -63,12 +63,12 @@ def make_env(spec: str, observation_output_kind: EnvBase.ObsOutputKind, seed,
         pass
     elif variant == 'video_background':
         kwargs.update(
-            resource_files=os.path.join(get_kinetics_dir(), 'train/driving_car/*.mp4'),
+            resource_files=os.path.join(get_kinetics_dir(), 'driving_car/*.mp4'),
             background_remove_mode=background_remove_mode,
         )
     elif variant == 'video_background_noisy_sensor':
         kwargs.update(
-            resource_files=os.path.join(get_kinetics_dir(), 'train/driving_car/*.mp4'),
+            resource_files=os.path.join(get_kinetics_dir(), 'driving_car/*.mp4'),
             sensor_noise_mult=1,
             background_remove_mode=background_remove_mode,
         )
@@ -76,7 +76,7 @@ def make_env(spec: str, observation_output_kind: EnvBase.ObsOutputKind, seed,
             raise RuntimeError(f'Noisy sensor not implemented for {domain_name}_{task_name}')
     elif variant == 'video_background_camera_jitter':
         kwargs.update(
-            resource_files=os.path.join(get_kinetics_dir(), 'train/driving_car/*.mp4'),
+            resource_files=os.path.join(get_kinetics_dir(), 'driving_car/*.mp4'),
             spatial_jitter=120,
             background_remove_mode=background_remove_mode,
         )
