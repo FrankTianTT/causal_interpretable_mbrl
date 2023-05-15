@@ -1,5 +1,15 @@
 # Denoised MDPs: Learning World Models Better Than The World Itself
 
+clone:
+```
+git clone --recursive https://github.com/FrankTianTT/causal_interpretable_mbrl.git
+```
+run:
+```
+CUDA_VISIBLE_DEVICES=0 EGL_DEVICE_ID=0 KINETICS_DIR=~ python main.py env.kind=robodesk env.spec=tv_green_hue_noisy seed=0
+```
+
+
 **[Tongzhou Wang](https://ssnl.github.io/), [Simon S. Du](https://simonshaoleidu.com/), [Antonio Torralba](https://web.mit.edu/torralba/www/), [Phillip Isola](https://web.mit.edu/phillipi/), [Amy Zhang](https://amyzhang.github.io/), [Yuandong Tian](https://yuandong-tian.com/)**
 
 We provide a PyTorch implementation of [Denoised MDPs: Learning World Models Better Than The World Itself](https://ssnl.github.io/denoised_mdp), published in ICML 2022.
