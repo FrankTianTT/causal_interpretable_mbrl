@@ -10,5 +10,5 @@ gym==0.26.2
 opencv-python
 mujoco==2.3.3
 dm_control==1.0.11
-imageio==2.27.0
+imageio[ffmpeg]==2.27.0
 scikit-video==1.1.11
